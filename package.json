@@ -21,7 +21,7 @@
   "bugs": {
     "url": "https://github.com/EdoiseO/COMP3104/issues"
   },
-  "homepage": "https://github.com/EdoiseO/COMP3104#readme",
+  "homepage": ".",
   "dependencies": {
     "express": "^5.2.1",
     "@testing-library/jest-dom": "^5.17.0",

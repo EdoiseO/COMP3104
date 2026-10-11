@@ -24,7 +24,7 @@ The brief retains an echo-only `npm test` placeholder. Run the actual component 
 CI=true ./node_modules/.bin/react-scripts test --watchAll=false --runInBand
 ```
 
-The supplied obsolete Learn React test was replaced with a test of adding a student and resetting the form. Form labels were associated with their inputs. Express from Exercise 04 is preserved. The inherited explicit CommonJS package type was removed so Webpack can parse the starter's ES-module imports; Node still defaults to CommonJS for ordinary Node scripts. `gh-pages` is declared once as a development dependency; `^6.1.1` satisfies both overlapping ranges shown in the brief. Generated `node_modules` and `build` folders are ignored.
+The supplied obsolete Learn React test was replaced with a test of adding a student and resetting the form. Form labels were associated with their inputs. Express from Exercise 04 is preserved. The inherited explicit CommonJS package type was removed so Webpack can parse the starter's ES-module imports; Node still defaults to CommonJS for ordinary Node scripts. `gh-pages` is declared once as a development dependency; `^6.1.1` satisfies both overlapping ranges shown in the brief. Generated `node_modules` and `build` folders are ignored. The inherited repository URL was replaced with a relative app homepage (`.`), so the local app and build assets load correctly; the repository link remains in repository metadata and below.
 
 Exercise 05 ends with pushing `dep-inclusions`. Merging into main and configuring GitHub Pages deployment are reserved for the next lab. The existing CI badge reflects the repository workflow; it is not proof of a React build or test run.
 
