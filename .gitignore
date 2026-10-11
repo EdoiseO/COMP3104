@@ -1,2 +1,5 @@
 node_modules/
 dist/
+
+# React production build
+build/
