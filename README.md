@@ -2,31 +2,46 @@
 
 [![CI](https://github.com/EdoiseO/COMP3104/actions/workflows/ci.yml/badge.svg)](https://github.com/EdoiseO/COMP3104/actions/workflows/ci.yml)
 
-## Class Exercise 05 - React SPA
+## Class Exercises 05 and 06 - React SPA and GitHub Pages
 
 Student: **Phillip Onofua** | Student ID: **101489064**
 
-The `dep-inclusions` branch contains the instructor's Student Information System starter, with the student's identity updated. The React 18 / Create React App 5 configuration follows the official lab brief. The app adds a student's name, age and major to an in-memory list and clears the form after submission. Reloading starts a fresh list.
+This project uses the instructor's Student Information System starter, with the student's identity updated. The React 18 / Create React App 5 configuration follows the lab brief. The app adds a student's name, age and major to an in-memory list and clears the form after submission. Reloading starts a fresh list.
+
+Live app: https://edoiseo.github.io/COMP3104/
 
 From the repository root:
 
 ```sh
 npm ci
 npm run build
+npm test -- --watchAll=false --runInBand
 npm start
 ```
 
 Open `http://localhost:3000` for the development app.
 
-The brief retains an echo-only `npm test` placeholder. Run the actual component integration test with:
+The component integration test verifies the student identity, adding a student, displaying their details and clearing the form. For a single non-interactive test run:
 
 ```sh
-CI=true ./node_modules/.bin/react-scripts test --watchAll=false --runInBand
+CI=true npm test -- --watchAll=false --runInBand
 ```
 
-The supplied obsolete Learn React test was replaced with a test of adding a student and resetting the form. Form labels were associated with their inputs. Express from Exercise 04 is preserved. The inherited explicit CommonJS package type was removed so Webpack can parse the starter's ES-module imports; Node still defaults to CommonJS for ordinary Node scripts. `gh-pages` is declared once as a development dependency; `^6.1.1` satisfies both overlapping ranges shown in the brief. Generated `node_modules` and `build` folders are ignored. The inherited repository URL was replaced with a relative app homepage (`.`), so the local app and build assets load correctly; the repository link remains in repository metadata and below.
+Express from Exercise 04 is preserved. Generated `node_modules` and `build` folders are ignored on the source branches. The `homepage` setting points to the GitHub Pages project URL so production assets load under `/COMP3104/`.
 
-Exercise 05 ends with pushing `dep-inclusions`. Merging into main and configuring GitHub Pages deployment are reserved for the next lab. The existing CI badge reflects the repository workflow; it is not proof of a React build or test run.
+## Exercise 06 deployment
+
+Work is committed on `dep-inclusions` and merged into `main` through a pull request. CI installs the locked dependencies, builds the app and runs the component test on branch pushes and pull requests to main. A successful main build deploys the production files to `gh-pages`. Pull requests validate the app without publishing it.
+
+GitHub Pages uses **Deploy from a branch**, with **gh-pages / (root)** as its source. The deployment job uses the automatic `GITHUB_TOKEN`; only that job has content and Pages write permissions. After publishing the files, it requests a Pages build explicitly because a token-authored branch push alone does not trigger one.
+
+The lab's local deployment command remains available:
+
+```sh
+npm run deploy
+```
+
+Its `predeploy` script builds the app before `gh-pages` publishes the `build` directory. Source history remains on `main` and `dep-inclusions`; the generated site is on `gh-pages`.
 
 Repository: https://github.com/EdoiseO/COMP3104
 Branch: https://github.com/EdoiseO/COMP3104/tree/dep-inclusions
