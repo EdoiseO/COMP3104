@@ -11,12 +11,15 @@ const App = () => {
   };
 
   return (
-    <div className="App">
-      <h1>Student Information System</h1>
-      <h5>Developed By: 101489064 || Phillip Onofua || DevOps</h5>
+    <main className="App">
+      <header className="app-header">
+        <h1>Student Information System</h1>
+        <p className="app-description">Add a student and view their details below.</p>
+        <p className="developer-details">Developed By: 101489064 || Phillip Onofua || DevOps</p>
+      </header>
       <StudentForm addStudent={addStudent} />
       <StudentList students={students} />
-    </div>
+    </main>
   );
 };
 
